@@ -76,7 +76,7 @@
 </head>
 <body>
 <div id="controlbar">
-	<input type="text" id="filename-input">
+	<input type="text" id="filename-input" value="/var/www/apps/hubot-hipchat/log/deploy.log">
 	<button id="button-open-file" class="btn btn-small btn-inverse"><i class="icon-search icon-white"></i> Open file</button>
 	<select name="file-selector" id="file-selector" disabled="disabled">
 		<option value="default">No previous files opened</option>
@@ -133,7 +133,7 @@
 
 		$('#filename-input').tooltip({title:'Enter full path to file you wish to tail', placement:'bottom'});
 
-		var defaultPort = 8081;
+		var defaultPort = 3200;
 		var socket = io.connect(null,defaultPort);
 		var buffer = $('#tail');
 		var bufferPre = $('#tail pre');

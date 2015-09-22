@@ -2,7 +2,7 @@ var app = require('http').createServer(handler),
 	io = require('socket.io').listen(app, {log:false}),
 	fs = require('fs');
 
-app.listen(8081);
+app.listen(3200);
 
 var maxBuffer = 20000;
 
@@ -13,8 +13,9 @@ function handler (req, res) {
 				res.writeHead(500);
 				return res.end('Error loading index.html');
 			}
-			res.writeHead(200);
-			res.end(data);
+			res.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length});
+			res.write(data);
+			res.end();
 		});
 }
 
